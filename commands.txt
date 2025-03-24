@@ -1,0 +1,50 @@
+Створення WAR-файлу
+mvn clean package
+
+Деплой додатку
+mvn cargo:deploy
+
+оновити вже встановлений додаток:
+mvn cargo:redeploy
+
+Запуск Tomcat разом із проєктом
+mvn cargo:start
+
+Щоб зупинити Tomcat:
+mvn cargo:stop
+
+
+
+/opt/tomcat/bin/shutdown.sh
+/opt/tomcat/bin/startup.sh
+
+перевстановити залежності:
+mvn clean install -U
+
+
+sudo nano /opt/tomcat/conf/tomcat-users.xml
+
+<tomcat-users>
+    <user username="admin" password="admin" roles="manager-gui,manager-script"/>
+</tomcat-users>
+
+
+sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml
+Знайдіть:
+
+<Context>
+    <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+           allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1"/>
+</Context>
+Замініть на:
+
+<Context>
+    <!-- Вимкнення обмежень доступу -->
+</Context>
+
+
+
+<groupId>uaedunung.se</groupId>
+    <artifactId>fruits</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
