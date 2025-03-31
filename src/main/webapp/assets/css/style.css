@@ -1,0 +1,41 @@
+.row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+.col {
+    display: flex !important;
+    flex-direction: column; /* Додає вертикальну орієнтацію елементів у колонці */
+    padding-left: 15px; /* Додає відступи по боках, якщо потрібно */
+    padding-right: 15px; /* Додає відступи по боках, якщо потрібно */
+}
+
+/* Стилі для зображення */
+.card-img-top {
+    height: auto; /* Зберігає пропорції зображення */
+    object-fit: cover; /* Зберігає пропорції, не витягуючи зображення */
+}
+
+.card {
+    border: 1px solid #ccc; /* Контур картки */
+    border-radius: 8px; /* Скруглення кутів */
+    margin: 15px;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Стилі для тексту в картці */
+.card-body {
+    word-wrap: break-word; /* Дозволяє тексту автоматично переноситися на новий рядок */
+    word-break: break-word;
+    white-space: normal; /* Вимикає ненормальний перенос */
+    flex-grow: 1;
+    padding: 15px;
+}
+
+.card-title,
+.card-text {
+    word-wrap: break-word; /* Дозволяє тексту переноситися на новий рядок */
+    word-break: break-all;
+    white-space: normal; /* Вимикає ненормальний перенос */
+}
