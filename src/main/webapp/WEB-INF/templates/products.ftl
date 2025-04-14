@@ -1,28 +1,21 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="uk">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <title>Каталог фруктів</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Підключаємо Bootstrap -->
-    <link rel="stylesheet" href="${contextPath}/assets/css/bootstrap.min.css">
+    <link href="${contextPath}/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${contextPath}/assets/css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <script src="${contextPath}/assets/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <!----<link rel="stylesheet" href="${contextPath}/assets/css/style.css">-->
-
-    <title>Bootstrap demo</title>
 </head>
 <body>
-<h1>${message} test</h1>
-<h2>test 2</h2>
-<div class="alert alert-success" role="alert">
-    Bootstrap CSS is working!
-</div>
 
-
+<#include "navbar.ftl">
 
 <div class="container mt-4">
+    <h1 class="mb-4">Каталог фруктів</h1>
     <div class="row">
         <#list fruits as fruit>
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
@@ -34,9 +27,7 @@
                     </#if>
                     <div class="card-body">
                         <h5 class="card-title">${fruit.name}</h5>
-                        <p class="card-text">
-                            <#if fruit.description??>${fruit.description}<#else>Опис відсутній</#if>
-                        </p>
+                        <p class="card-text">${fruit.description!"Опис відсутній"}</p>
                     </div>
                 </div>
             </div>
