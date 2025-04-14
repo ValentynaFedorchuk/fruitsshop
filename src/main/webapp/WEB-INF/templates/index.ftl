@@ -30,9 +30,16 @@
                             <input type="email" name="email" class="form-control" required>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-3 position-relative">
                             <label for="password" class="form-label">Пароль</label>
-                            <input type="password" name="password" class="form-control" required>
+                            <input type="password" name="password" id="password" class="form-control" required>
+                            <!-- Іконка Bootstrap -->
+                            <i class="bi bi-eye-fill position-absolute" id="togglePassword"
+                               style="top: 38px; right: 15px; cursor: pointer;"></i>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <a href="${contextPath}/change-password">Змінити пароль</a>
                         </div>
 
                         <div class="d-grid">
@@ -49,6 +56,6 @@
         </div>
     </div>
 </div>
-
+<script src="${contextPath}/assets/js/password-toggle.js"></script>
 </body>
 </html>

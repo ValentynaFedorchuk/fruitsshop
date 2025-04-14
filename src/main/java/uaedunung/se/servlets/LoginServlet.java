@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
                 resp.sendRedirect(req.getContextPath() + "/products");
             } else {
                 req.setAttribute("error", "Невірний логін або пароль");
-                req.getRequestDispatcher("/templates/index.ftl").forward(req, resp);
+                req.getRequestDispatcher("/WEB-INF/templates/index.ftl").forward(req, resp);
             }
         }
     }
