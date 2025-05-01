@@ -2,7 +2,7 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Вхід до FruitShop</title>
+    <title>Зміна паролю</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
@@ -14,7 +14,6 @@
     <script src="${contextPath}/assets/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-
 <#include "navbar.ftl">
 
 <div class="container mt-5">
@@ -22,33 +21,42 @@
         <div class="col-md-6 col-lg-5">
             <div class="card shadow-sm">
                 <div class="card-body">
-                    <h3 class="card-title text-center mb-4">Вхід до системи</h3>
+                    <h3 class="card-title text-center mb-4">Зміна паролю</h3>
 
-                    <form method="post" action="${contextPath}/login">
+                    <form method="post" action="${contextPath}/change-password">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email адреса</label>
                             <input type="email" name="email" class="form-control" required>
                         </div>
 
                         <div class="mb-3 position-relative">
-                            <label for="password" class="form-label">Пароль</label>
-                            <input type="password" name="password" id="password" class="form-control" required>
-                            <!-- Іконка Bootstrap -->
-                            <i class="bi bi-eye-fill position-absolute" id="togglePassword"
-                               style="top: 38px; right: 15px; cursor: pointer;"></i>
+                            <label for="oldPassword" class="form-label">Старий пароль</label>
+                            <input type="password" name="oldPassword" id="oldPassword" class="form-control" required>
+
                         </div>
 
-                        <div class="text-center mt-3">
-                            <a href="${contextPath}/change-password">Змінити пароль</a>
+                        <div class="mb-3 position-relative">
+                            <label for="newPassword" class="form-label">Новий пароль</label>
+                            <input type="password" name="newPassword" id="newPassword" class="form-control" required>
+
                         </div>
 
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Увійти</button>
+                            <button type="submit" class="btn btn-primary">Змінити пароль</button>
                         </div>
 
-
                         <#if error??>
-                            <div class="alert alert-danger mt-3">${error?html}</div>
+                            <div class="alert alert-danger mt-3">${error}</div>
+                        </#if>
+
+                        <#if changePasswordSuccess??>
+                            <div class="alert alert-success mt-3">${changePasswordSuccess}</div>
+                        </#if>
+
+                        <#if error?? || changePasswordSuccess??>
+                            <div class="d-flex justify-content-center mt-3">
+                                <a href="${contextPath}/home" class="btn btn-primary">На головну</a>
+                            </div>
                         </#if>
 
                     </form>
@@ -58,6 +66,6 @@
         </div>
     </div>
 </div>
-<script src="${contextPath}/assets/js/password-toggle.js"></script>
+
 </body>
 </html>

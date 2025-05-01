@@ -21,6 +21,9 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8"); // обов'язково!
+        resp.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html; charset=UTF-8");
 
         Configuration cfg = FreeMarkerConfig.getConfig(getServletContext());
         Map<String, Object> model = new HashMap<>();
